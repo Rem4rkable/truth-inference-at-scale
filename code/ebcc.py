@@ -11,7 +11,7 @@ def ebcc_vb(tuples, num_groups=10, a_pi=0.1, alpha=1, a_v=4, b_v=1, seed=1234, m
     y_is_one_lji = []
     for k in range(num_classes):
         selected = (tuples[:, 2] == k)
-        coo_ij = ssp.coo_matrix((np.ones(selected.sum()), tuples[selected, :2].T), shape=(num_items, num_workers), dtype=np.bool)
+        coo_ij = ssp.coo_matrix((np.ones(selected.sum()), tuples[selected, :2].T), shape=(num_items, num_workers), dtype=bool)
         y_is_one_lij.append(coo_ij.tocsr())
         y_is_one_lji.append(coo_ij.T.tocsr())
     
